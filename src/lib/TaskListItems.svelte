@@ -55,7 +55,8 @@ modalStore.trigger(modal);
 
 
 {#each $tasks as task}
-  {#if task.isDone == doneTasks && $filter == 'All tasks' && dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60}
+  {#if task.isDone == doneTasks } 
+  <!-- هنا اللي مخرب علي -->
     <li
     transition:scale={{ duration: 300, opacity: 1, start: 0.5, easing: quintOut }}
 
