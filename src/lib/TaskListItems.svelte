@@ -7,6 +7,7 @@
   import { quintOut } from 'svelte/easing';
 
 	import { scale } from 'svelte/transition';
+  import {filter} from '$lib/stores/filter';
 
 
 
@@ -54,7 +55,7 @@ modalStore.trigger(modal);
 
 
 {#each $tasks as task}
-  {#if task.isDone == doneTasks}
+  {#if task.isDone == doneTasks && $filter == 'All tasks' && dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60}
     <li
     transition:scale={{ duration: 300, opacity: 1, start: 0.5, easing: quintOut }}
 

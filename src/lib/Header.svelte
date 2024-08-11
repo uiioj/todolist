@@ -1,12 +1,12 @@
 <script lang="ts">
     import { ListBox, ListBoxItem, popup, type PopupSettings } from '@skeletonlabs/skeleton';
 	import dayjs from 'dayjs';
+  import {filter} from "$lib/stores/filter";
 
 
 let period = dayjs().format('a') == 'am' ? 'morning🌇' : 'evening🌃';
 
 
-let comboboxValue: string = 'all';
 
 const popupCombobox: PopupSettings = {
 	event: 'click',
@@ -36,7 +36,7 @@ const popupCombobox: PopupSettings = {
     <button class="btn variant-filled-primary w-36  h-fit py-4 justify-between active:rounded-xl " use:popup={popupCombobox}>
 
 
-      <span class="capitalize">{comboboxValue}</span>
+      <span class="capitalize">{$filter}</span>
 
       <span class=" !m-0">
         <!-- rotate arrow on open -->
@@ -47,9 +47,9 @@ const popupCombobox: PopupSettings = {
 <div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
 
 	<ListBox >
-		<ListBoxItem bind:group={comboboxValue} name="medium" value="All tasks">All tasks</ListBoxItem>
+		<ListBoxItem bind:group={$filter} name="medium" value="All tasks">All tasks</ListBoxItem>
 
-		<ListBoxItem bind:group={comboboxValue} name="medium" value="Today's tasks">Today's tasks</ListBoxItem>
+		<ListBoxItem bind:group={$filter} name="medium" value="Today's tasks">Today's tasks</ListBoxItem>
 
 		
 
