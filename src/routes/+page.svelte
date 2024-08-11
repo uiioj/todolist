@@ -1,13 +1,23 @@
 <script lang="ts">
 import Header from "$lib/Header.svelte";
 import Taskicon from "$lib/Taskicon.svelte";
-import {name} from "$lib/stores/name";
+import {tasks} from "$lib/stores/tasks";
+import dayjs from "dayjs";
 
-name.update((name: string) => {
-    return name + '1';
-});
+let title= "";
 
-console.log($name);
+function addTask(){
+    tasks.update((currentTasks) => {
+        currentTasks.push({
+            title,
+            assignedDate: dayjs(),
+            isDone: false,
+        });
+
+        return currentTasks;
+    });
+    title ="";
+}
 
 
 </script>
@@ -16,8 +26,9 @@ console.log($name);
 <Header />
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 	<div class="input-group-shim"><Taskicon/></div>
-	<input class="!bg-[#fcfdfd]" type="search"  placeholder ="Task title..." />
-	<button class="variant-filled-primary">Add</button>
+
+	<input bind:value={title} class="!bg-[#fcfdfd]" type="search"  placeholder ="Task title..." />
+	<button on:click={addTask} class="variant-filled-primary">Add</button>
 </div>
 
 </div>
