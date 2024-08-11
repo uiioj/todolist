@@ -1,19 +1,25 @@
 <script lang="ts">
-	import dayjs from 'dayjs';
+import Header from "$lib/Header.svelte";
+import Taskicon from "$lib/Taskicon.svelte";
+import {name} from "$lib/stores/name";
+
+name.update((name: string) => {
+    return name + '1';
+});
+
+console.log($name);
 
 
-let period = dayjs().format('a') == 'am' ? 'morning' : 'evening';
 </script>
 
-<div class="p-16">
-  <header class="flex justify-between">
-    <div>
-      <h1 class="text-4xl text-surface-900 mb-2">Good {period}👋🏻</h1>
-      <h2 class="text-2xl text-surface-900/50">
-		 Today, {dayjs().format('dddd D MMM YYYY')}
-	</h2>
-    </div>
-
-    <div class="bg-green-800 w-32 h-12"></div>
-  </header>
+<div class="p-16 flex flex-col gap-10 ">
+<Header />
+<div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
+	<div class="input-group-shim"><Taskicon/></div>
+	<input class="!bg-[#fcfdfd]" type="search"  placeholder ="Task title..." />
+	<button class="variant-filled-primary">Add</button>
 </div>
+
+</div>
+
+
