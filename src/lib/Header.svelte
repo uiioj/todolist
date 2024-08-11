@@ -23,8 +23,8 @@ const popupCombobox: PopupSettings = {
 
 <header class=" flex justify-between">
     <div>
-      <h1 class="text-4xl text-surface-800 font-bold mb-2">Good {period}</h1>
-      <h2 class="text-2xl text-surface-800/50 font-semibold">
+      <h1 class="text-3xl lg:text-4xl text-surface-800 font-bold mb-2">Good {period}</h1>
+      <h2 class="text-md text-surface-800/50 font-semibold">
 		 Today, {dayjs().format('dddd D MMM YYYY')}
 	</h2>
 
@@ -33,7 +33,7 @@ const popupCombobox: PopupSettings = {
 
     <!-- svelte-ignore missing-declaration -->
 
-    <button class="btn variant-filled-primary w-48 h-fit py-4 justify-between" use:popup={popupCombobox}>
+    <button class="btn variant-filled-primary w-36  h-fit py-4 justify-between" use:popup={popupCombobox}>
 
 
       <span class="capitalize">{comboboxValue}</span>
