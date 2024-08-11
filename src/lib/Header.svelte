@@ -33,7 +33,7 @@ const popupCombobox: PopupSettings = {
 
     <!-- svelte-ignore missing-declaration -->
 
-    <button class="btn variant-filled-primary w-36  h-fit py-4 justify-between" use:popup={popupCombobox}>
+    <button class="btn variant-filled-primary w-36  h-fit py-4 justify-between active:rounded-xl " use:popup={popupCombobox}>
 
 
       <span class="capitalize">{comboboxValue}</span>
@@ -46,7 +46,7 @@ const popupCombobox: PopupSettings = {
     
 <div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
 
-	<ListBox rounded="rounded-none " active="variant-filled-primary">
+	<ListBox >
 		<ListBoxItem bind:group={comboboxValue} name="medium" value="All tasks">All tasks</ListBoxItem>
 
 		<ListBoxItem bind:group={comboboxValue} name="medium" value="Today's tasks">Today's tasks</ListBoxItem>
