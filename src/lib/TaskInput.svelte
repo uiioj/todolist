@@ -23,7 +23,7 @@
   }
 </script>
 
-<div
+<form
   class="input-group input-group-divider flex flex-col sm:flex-row justify-between !bg-[#fcfdfd] h-fit"
 >
   <input
@@ -38,7 +38,7 @@
     title="Input (datetime-local)"
     type="datetime-local"
   />
-  <button on:click={addTask} class="variant-filled-primary p-2 text-center">
+  <button type="submit" on:click={addTask} class="variant-filled-primary p-2 text-center {title.trim().length == 0 ? 'variant-filled-surface' : '' } " disabled={title.trim().length == 0}>
     <span class="mx-auto"> Add </span>
   </button>
-</div>
+</form>
