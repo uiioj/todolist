@@ -32,8 +32,8 @@ const popupCombobox: PopupSettings = {
 
 <header class=" flex justify-between">
     <div>
-      <h1 class="text-3xl lg:text-4xl text-surface-800 font-bold mb-2">Good {period}</h1>
-      <h2 class="text-md text-surface-800/50 font-semibold">
+      <h1 class="text-3xl lg:text-4xl text-primary-700 font-bold mb-2">Good {period}</h1>
+      <h2 class="text-md text-primary-700/50 font-semibold">
 		 Today, {dayjs().format('dddd D MMM YYYY')}
 	</h2>
 
@@ -60,7 +60,7 @@ const popupCombobox: PopupSettings = {
 <div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
 
 	<ListBox >
-		<ListBoxItem bind:group={$filter} name="medium" value="All">All </ListBoxItem>
+		<ListBoxItem bind:group={$filter} name="medium" value="All">All</ListBoxItem>
 
 		<ListBoxItem bind:group={$filter} name="medium" value="Today">Today</ListBoxItem>
 

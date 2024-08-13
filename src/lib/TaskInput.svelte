@@ -3,7 +3,8 @@
   import dayjs from "dayjs";
 
   let title = "";
-  let datetime= dayjs().add(1, "hour").format('YYY-MM-DDTHH:mm'); // سالفة التيليجرام
+  let datetime = dayjs().add(1, "hour").format("YYYY-MM-DDTHH:mm");
+  // سالفة التيليجرام
 
   function addTask() {
     tasks.update((currentTasks) => {
@@ -33,11 +34,12 @@
     placeholder="Task title..."
   />
   <input
-  bind:value={datetime}
+    bind:value={datetime}
     class="input sm:w-fit"
     title="Input (datetime-local)"
     type="datetime-local"
   />
+  
   <button type="submit" on:click={addTask} class="variant-filled-primary p-2 text-center {title.trim().length == 0 ? 'variant-filled-surface' : '' } " disabled={title.trim().length == 0}>
     <span class="mx-auto"> Add </span>
   </button>

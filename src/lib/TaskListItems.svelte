@@ -47,16 +47,24 @@
   
 };
 modalStore.trigger(modal);
-    
+     }
 
+     function applyFilter(filter: typeof $filter, task: Task): boolean {
+    switch (filter) {
+      case "Today":
+        return dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60;
+      case "All":
+      default:
+        return true;
+    }
   }
+
 </script>
 
 
 
 {#each $tasks as task}
-  {#if task.isDone == doneTasks } 
-  <!-- هنا اللي مخرب علي -->
+  {#if task.isDone == doneTasks && applyFilter($filter, task)} 
     <li
     transition:scale={{ duration: 300, opacity: 1, start: 0.5, easing: quintOut }}
 
