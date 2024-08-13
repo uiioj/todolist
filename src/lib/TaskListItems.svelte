@@ -81,7 +81,7 @@ modalStore.trigger(modal);
         <span class="ml-2"> {task.title} </span>
       </div>
 
-      <div class="flex gap-2">
+      <div class="flex gap-2 ">
         <button class="btn bg-surface-50 hover:bg-surface-300">
           {dayjs().to(dayjs(task.assignedDate))}
         </button>

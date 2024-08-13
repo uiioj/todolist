@@ -57,7 +57,7 @@ const popupCombobox: PopupSettings = {
       </span>
     </button>
     
-<div class="card w-48 shadow-xl py-2" data-popup="popupCombobox">
+<div class="card w-48 shadow-xl py-2 rounded-lg" data-popup="popupCombobox">
 
 	<ListBox >
 		<ListBoxItem bind:group={$filter} name="medium" value="All">All</ListBoxItem>
